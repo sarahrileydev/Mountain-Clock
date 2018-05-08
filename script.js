@@ -2,11 +2,11 @@ var noon = 12;
 var evening = 18; // 6PM
 var wakeupTime = 9; // 9AM
 var lunchTime = 12; // 12PM
-var partyTime = 17; // 5PM
+var mountainTime = 17; // 5PM
 var napTime = lunchTime + 2; // 2PM
 var time = new Date().getHours();
-var isPartyTime = false;
-var partyTimeButton = document. getElementById("partyTimeButton");
+var isMountainTime = false;
+var mountainTimeButton = document. getElementById("mountainTimeButton");
 var napTimeSelector = document.getElementById("napTimeSelector");
 var lunchTimeSelector = document.getElementById("lunchTimeSelector");
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
@@ -15,30 +15,30 @@ var updateClock = function () {
 
     var message = document.getElementById("timeEvent");
     var messageText;
-    var lolcat = document.getElementById("lolcat");
-    var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg;";
+    var mountainImage = document.getElementById("mountainImage");
+    var image = "img/earth-608366-unsplash.jpg";
 
-    if (time == partyTime) {
-        image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/partyTime.jpg";
-        messageText = "IZ PARTEE TIME!!";
+    if (time == mountainTime) {
+        image = "img/cam-adams-39417-unsplash.jpg";
+        messageText = "You don't really conquer \na mountain,you conquer \nyourself. ~James Whittaker";
     } else if (time == napTime) {
-        image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat3.jpg";
-        messageText = "IZ NAP TIME...";
+        image = "img/kate-joie-542341-unsplash.jpg";
+        messageText = "Take a nap. Then conquer \nthe world. ~Earlene Grey";
     } else if (time == lunchTime) {
-        image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat2.jpg";
-        messageText = "IZ NOM NOM NOM TIME!!";
+        image = "img/teddy-kelley-76880-unsplash.jpg";
+        messageText = "The best of all sauces \nis hunger. ~Edward Abbey";
     } else if (time == wakeupTime) {
-        image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg0";
-        messageText = "IZ TIME TO GETTUP.";
+        image = "img/sebastian-unrau-47679-unsplash.jpg";
+        messageText = "The mountains are \n calling... ~John Muir";
     } else if (time < noon) {
-        messageText = "Good morning!";
+        messageText = "Time to get moving!";
     } else if (time > evening) {
-        messageText = "Good Evening!";
+        messageText = "Early to bed. Early to rise.";
     } else {
-        messageText = "Good afternoon!";
+        messageText = "Burning daylight!";
     }
     message.innerText = messageText;
-    lolcat.src = image;
+    mountainImage.src = image;
 
     var showCurrentTime = function () {
         // display the string on the webpage
@@ -70,7 +70,7 @@ var updateClock = function () {
         }
 
         // put together the string that displays the time
-        var clockTime = hours + ':' + minutes + ':' + seconds + " " + meridian + "!";
+        var clockTime = hours + ':' + minutes + ':' + seconds + " " + meridian;
 
         clock.innerText = clockTime;
     };
@@ -81,20 +81,20 @@ updateClock();
 var oneSecond = 1000;
 setInterval(updateClock, oneSecond);
 
-function partyEvent() {
-    if (isPartyTime === false) {
-        isPartyTime = true;
-        time = partyTime;
-        partyTimeButton.innerText = "Party Time!";
-        partyTimeButton.style.backgroundColor = "#222";
+function summitEvent() {
+    if (isMountainTime === false) {
+        isMountainTime = true;
+        time = mountainTime;
+        mountainTimeButton.innerText = "Summit";
+        mountainTimeButton.style.backgroundColor = "#222";
     } else {
-        isPartyTime = false;
+        isMountainTime = false;
         time = new Date().getHours();
-        partyTimeButton.innerText = "Party Over";
-        partyTimeButton.style.backgroundColor = "#0a8dab";
+        mountainTimeButton.innerText = "Head Back";
+        mountainTimeButton.style.backgroundColor = "#0a8dab";
     };
 };
-partyTimeButton.addEventListener('click', partyEvent);
+mountainTimeButton.addEventListener('click', summitEvent);
 
 var lunchEvent = function() {
     lunchTime = lunchTimeSelector.value;

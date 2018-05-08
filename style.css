@@ -44,7 +44,7 @@ blockquote {
 blockquote:before { content: '"'; }
 blockquote:after { content: '"'; }
 
-#lolcat {
+#mountainImage {
   margin: 0 auto;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -53,8 +53,9 @@ blockquote:after { content: '"'; }
 }
 #wakeUpTimeSelector, #lunchTimeSelector, #napTimeSelector {
   padding: 10px 0;
+  border-radius: 10px;
 }
-#partyTimeButton {
+#mountainTimeButton {
   background-color: #222;
   width: 300px;
   font-family: 'Bungee', cursive;
